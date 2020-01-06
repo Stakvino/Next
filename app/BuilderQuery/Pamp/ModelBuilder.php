@@ -3,7 +3,7 @@
 namespace App\BuilderQuery\Pamp;
 
 use Illuminate\Http\Request;
-use Yajra\DataTables\Facades\DataTables;
+use DataTables;
 use Illuminate\Support\Facades\Validator;
 
 /**
