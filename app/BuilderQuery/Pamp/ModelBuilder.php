@@ -99,6 +99,7 @@ trait ModelBuilder
      */
      private function _dataTable(Request $request, $model)
      { 
+       dd(DataTables);
          $data = $model::grid($this->cleanRequest($request, $model->allows));
          $dataTable = DataTables::of($data);
          
