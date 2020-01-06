@@ -1,0 +1,152 @@
+div.main-secion{
+  max-width: 1200px;
+  margin: 50px auto;
+}
+
+#liste_fournisseur{
+  tbody{
+    tr[role="row"]{
+      &.shown{
+        background-color: #2185d0;
+        td.sorting_1{
+          background-color: #2185d0;
+        }
+      }  
+      &.hover-highlight{
+        &:hover{
+          background-color: #2185d0;
+          td.sorting_1{
+            background-color: #2185d0;
+          }
+        }
+      }   
+      td.open{
+        cursor: pointer;
+      }
+      td.no-padding{
+        padding: 0;
+      }
+      td:last-child{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    tr.no-padding{
+      background-color: lighten( #2185d0, 40%);
+    }
+    
+  }
+}
+
+#fournisseur_details{
+  width: 60%;
+  display: none;
+  margin: 15px;
+  div.field{
+    display: flex;
+    align-items: center;
+    label{
+      width: 120px;
+      display: block;
+    }
+    div.error_message{
+      margin-left: 15px;
+      p{
+        color: #B03060;
+      }
+    }
+    input[name="Adresse"]{
+      flex: 1;
+    }
+    input[name="Nom"]{
+      width: 250px;
+    }
+    input[name="Cp"],input[name="Ville"],#filter_Pays{
+      width: 140px;
+    }
+    #filter_Pays{
+      padding-right: 14px;
+      min-height: 14px;
+    }
+  }
+}
+
+div.nouveau-fournisseur-btn{
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+div.reset_filters{
+  margin-bottom: 20px;
+  display: none;
+  button.ui.button{
+    font-size: .8em;
+  }
+}
+
+div.filter_fields{
+  display: flex;
+  margin-bottom: 15px;
+  div.ui.search{
+    margin-right: 15px;
+  }
+  div.Pays_dropdown{
+    width: 200px;
+    display: flex;
+  }
+}
+
+//Modals
+div.izimodal{
+  form{
+    padding: 25px;
+  }
+  div.modal_buttons{
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+    button{
+      margin-right: 15px;
+    }
+  }
+  div.error_message{
+    p{
+      font-size: .8em;
+      color: #B03060;
+    }
+  }
+}
+
+//Contacts
+div.contacts_container{
+  margin: 50px 15px 25px 15px;
+  div.contacts_header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 35px;
+    button{
+      height: 28px;
+      padding: 4px 14px;
+    }
+  }
+}
+
+#liste_contact{
+
+  tbody tr[role="row"] td:last-child{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  tbody div.btns_td{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 70px;
+  }
+  
+}

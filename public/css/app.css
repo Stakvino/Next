@@ -1,0 +1,178 @@
+div.main-secion {
+  max-width: 1200px;
+  margin: 50px auto;
+}
+
+#liste_fournisseur tbody tr[role=row].shown {
+  background-color: #2185d0;
+}
+
+#liste_fournisseur tbody tr[role=row].shown td.sorting_1 {
+  background-color: #2185d0;
+}
+
+#liste_fournisseur tbody tr[role=row].hover-highlight:hover {
+  background-color: #2185d0;
+}
+
+#liste_fournisseur tbody tr[role=row].hover-highlight:hover td.sorting_1 {
+  background-color: #2185d0;
+}
+
+#liste_fournisseur tbody tr[role=row] td.open {
+  cursor: pointer;
+}
+
+#liste_fournisseur tbody tr[role=row] td.no-padding {
+  padding: 0;
+}
+
+#liste_fournisseur tbody tr[role=row] td:last-child {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+#liste_fournisseur tbody tr.no-padding {
+  background-color: #c7e2f6;
+}
+
+#fournisseur_details {
+  width: 60%;
+  display: none;
+  margin: 15px;
+}
+
+#fournisseur_details div.field {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+#fournisseur_details div.field label {
+  width: 120px;
+  display: block;
+}
+
+#fournisseur_details div.field div.error_message {
+  margin-left: 15px;
+}
+
+#fournisseur_details div.field div.error_message p {
+  color: #B03060;
+}
+
+#fournisseur_details div.field input[name=Adresse] {
+  -webkit-box-flex: 1;
+          flex: 1;
+}
+
+#fournisseur_details div.field input[name=Nom] {
+  width: 250px;
+}
+
+#fournisseur_details div.field input[name=Cp],
+#fournisseur_details div.field input[name=Ville],
+#fournisseur_details div.field #filter_Pays {
+  width: 140px;
+}
+
+#fournisseur_details div.field #filter_Pays {
+  padding-right: 14px;
+  min-height: 14px;
+}
+
+div.nouveau-fournisseur-btn {
+  margin-bottom: 15px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: end;
+          justify-content: flex-end;
+}
+
+div.reset_filters {
+  margin-bottom: 20px;
+  display: none;
+}
+
+div.reset_filters button.ui.button {
+  font-size: 0.8em;
+}
+
+div.filter_fields {
+  display: -webkit-box;
+  display: flex;
+  margin-bottom: 15px;
+}
+
+div.filter_fields div.ui.search {
+  margin-right: 15px;
+}
+
+div.filter_fields div.Pays_dropdown {
+  width: 200px;
+  display: -webkit-box;
+  display: flex;
+}
+
+div.izimodal form {
+  padding: 25px;
+}
+
+div.izimodal div.modal_buttons {
+  margin-top: 35px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
+div.izimodal div.modal_buttons button {
+  margin-right: 15px;
+}
+
+div.izimodal div.error_message p {
+  font-size: 0.8em;
+  color: #B03060;
+}
+
+div.contacts_container {
+  margin: 50px 15px 25px 15px;
+}
+
+div.contacts_container div.contacts_header {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 35px;
+}
+
+div.contacts_container div.contacts_header button {
+  height: 28px;
+  padding: 4px 14px;
+}
+
+#liste_contact tbody tr[role=row] td:last-child {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+#liste_contact tbody div.btns_td {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+          align-items: flex-end;
+  width: 70px;
+}
+
