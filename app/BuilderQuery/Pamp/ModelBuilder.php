@@ -101,7 +101,7 @@ trait ModelBuilder
      { 
        
          $data = $model::grid($this->cleanRequest($request, $model->allows));
-         $dataTable = datatables()->of($data);
+         $dataTable = DataTables::of($data);
          
          return  $dataTable->toJson();
     }
