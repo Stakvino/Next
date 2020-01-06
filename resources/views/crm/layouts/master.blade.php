@@ -12,19 +12,19 @@
 
         <link href="/img/favicon.ico" rel="SHORTCUT ICON" />
 
+        
         <!-- Bootstrap -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-        <!-- Datatable -->
-        <link rel="stylesheet" href="http://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
-        <!-- Awesome Font -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="{{asset('vendor/bootstrap/bootstrap.min.css')}}" />
+        <!-- DataTable -->
+<link rel="stylesheet" href="http://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
         <!-- iziModal -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/css/iziModal.min.css" />
-        
+        <link rel="stylesheet" href="{{asset('vendor/iziModal/Modal.min.css')}}" />
+        <!-- iziToast -->
         <link rel="stylesheet" type="text/css" href="{{asset('vendor/iziToast/dist/css/iziToast.min.css')}}">
-        
-        <!-- Semantic UI -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.css">
+        <!-- SemanticUi -->
+        <link rel="stylesheet" type="text/css" href="{{asset('vendor/SemanticUI/semantic.min.css')}}">
+         <!-- iziToast -->       
+        <link rel="stylesheet" type="text/css" href="{{asset('vendor/iziToast/dist/css/iziToast.min.css')}}">
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -40,12 +40,11 @@
     </div> 
 
     <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="{{asset('vendor/jQuery/jquery.min.js')}}"></script>
     <!-- JQuery Datatables -->
-    <script src="http://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="{{asset('vendor/DataTables/jquery.dataTables.min.js')}}"></script>
     <!-- iziModal -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js"></script>
-
+    <script src="{{asset('vendor/iziModal/Modal.min.js')}}"></script>
     <!-- iziToast -->
     <script src="{{asset('vendor/iziToast/dist/js/iziToast.min.js')}}"></script>
     <!-- Semantic UI -->
