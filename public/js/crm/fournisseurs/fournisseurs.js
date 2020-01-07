@@ -48,8 +48,16 @@
       "order": [[0, 'asc']]
     } );
 
+    //Add semantic ui styling to liste_length dropdown [25,50,100,All]
+    $('select[name="liste_fournisseur_length"]')
+    .addClass('ui dropdown liste_fournisseur_length');  
+
+    const $table_body = $('#liste_fournisseur tbody');
+    const $loader_tr = $('<tr id="loader_tr"><td colspan="6"></td></tr>');
+    $loader_tr.find('td').append($('.fournisseur_open_loader'));
+    
     // Add event listener for opening and closing childrow
-    $('#liste_fournisseur tbody').on('click', 'td.open', function () {
+    $table_body.on('click', 'td.open', function () {
         var tr = $(this).closest('tr');
         var allrows = $('#liste_fournisseur tbody tr[role="row"]')
         var row = liste_fournisseur.row( tr );
@@ -69,20 +77,22 @@
             const opened_row = liste_fournisseur.row( $opened_tr );
             opened_row.child.hide();
             $opened_tr.removeClass('shown');
-
+            
+            $loader_tr.insertAfter(tr).show();
             // Open this row
             $.ajax({
-                url :`${base_url}/${id}/show`,
-                method: "get",
-                success: function(data){
-                  row.child( data.view, 'no-padding' ).show();
-                  tr.addClass('shown');
-                  allrows.removeClass('hover-highlight');
-                  $('#fournisseur_details', row.child()).slideDown(() => {
-                    allrows.addClass('hover-highlight');
-                  });
-                }
-            })
+              url :`${base_url}/${id}/show`,
+              method: "get",
+              success: function(data){
+                $loader_tr.hide();
+                row.child( data.view, 'no-padding' ).show();
+                tr.addClass('shown');
+                allrows.removeClass('hover-highlight');
+                $('#fournisseur_details', row.child()).slideDown(() => {
+                  allrows.addClass('hover-highlight');
+                });
+              }
+            });
         }
     } );
 
@@ -93,16 +103,19 @@
     const $reset_filters = $('div.reset_filters');
     const fade_delay = 200;
 
+    function filters_event_handler(){
+      liste_fournisseur.ajax.reload();
+      const inputs_are_empty = $filters.toArray().every(input => input.value === "");
+      if(inputs_are_empty){
+        $reset_filters.hide(fade_delay);
+      }else{
+        $reset_filters.show(fade_delay);
+      }
+    }
+
     //Filter datatable according to user input 
-    $filters.on('keyup change' , function(){
-        liste_fournisseur.ajax.reload();
-        const inputs_are_empty = $filters.toArray().every(input => input.value === "");
-        if(inputs_are_empty){
-          $reset_filters.hide(fade_delay);
-        }else{
-          $reset_filters.show(fade_delay);
-        }
-    });
+    $filters.on('keyup' , filters_event_handler);
+    $('#filter_Pays').find('input[name="Pays"]').change(filters_event_handler);
 
     //Clicking reset filters btn will reset filters input value to default
     $reset_filters.click(function(){
@@ -150,6 +163,7 @@
 
     });
     //-------------------------------------------------------
+    const $fournisseur_details_loader = $('.fournisseur_details_loader');
     /**
     * Event handler to update fournisseur
     *  
@@ -165,13 +179,16 @@
       data.push({"name": "_method", "value": "patch"});
       const url = `${base_url}/${id}/update`;
       const $updated_row = $form.closest('tr').prev('tr.shown');
-      
+      $('#fournisseur_details').append($fournisseur_details_loader);
+      $fournisseur_details_loader.show();
+
       update_ressource(data, url, 
       response => {
         if(!response.error){
           update_row_values($updated_row, data);
           flash('Fournisseur modifier', 'success');
           $form.find('.error_message p').text('');
+          $fournisseur_details_loader.hide();
         }else{
           const error_messages = response.errors; 
           formErrors($form, error_messages);
@@ -183,7 +200,8 @@
     //-------------------------------------------------------
     //Modifier Fournisseur
     $(document).on('change', '.fournisseur_update_input', update_fournisseur);
-    //-------------------------------------------------------------- 
+    //--------------------------------------------------------------
+    const $suppression_loader = $('.suppression_loader'); 
     /**
     * Event handler to delete fournisseur
     *  
@@ -194,9 +212,11 @@
       confirm_popup('Voulez vous supprimer ce fournisseur ?', 'red',
        () =>{ //user clicked yes
         const data = {"_method": "delete"};
-        const url = `${base_url}/${id}/destroy`; 
+        const url = `${base_url}/${id}/destroy`;
+        $suppression_loader.show(); 
         update_ressource(data, url, 
         response =>{ //success_action
+          $suppression_loader.hide();
           liste_fournisseur.ajax.reload();
           flash('Fournisseur supprimer', 'success');
         });

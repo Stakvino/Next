@@ -37,29 +37,29 @@
       "order": [[0, 'asc']]
     } );
 
+    //Contact Modals
+    $('.izimodal').iziModal({restoreDefaultContent : true});
+    const $nv_contact_modal = $('#nv_contact_modal');
+    const $contact_update_modal = $('#contact_update_modal');
 
-    //Nouveau Contact Modal
-    $('#contact_modal').iziModal({restoreDefaultContent : true});
-    const $contact_modal = $('#contact_modal');
-    
     $('.nouveau-contact-btn').click(function(){
       
-      $contact_modal.iziModal('open');
+      $nv_contact_modal.iziModal('open');
         
-      $('button.valider', $contact_modal).click(function(){
+      $('button.valider', $nv_contact_modal).click(function(){
         
-        $contact_modal.iziModal('startLoading');
-        const $form = $contact_modal.find('form');
+        $nv_contact_modal.iziModal('startLoading');
+        const $form = $nv_contact_modal.find('form');
         const data = $form.serializeArray();
         data.push({"name": "fournisseur_id", "value": fournisseur_id});
         const url = `${base_url}/contacts/store`;
 
         update_ressource(data, url, 
           response =>{ //success_action
-            $contact_modal.iziModal('stopLoading');
+            $nv_contact_modal.iziModal('stopLoading');
             
             if(!response.error){
-              $contact_modal.iziModal('close');
+              $nv_contact_modal.iziModal('close');
               liste_contact.ajax.reload();
               flash('Contact ajouter', 'success');
             }else{
@@ -68,7 +68,7 @@
             }
           },
           ()=>{ //error_action
-            $contact_modal.iziModal('close');
+            $nv_contact_modal.iziModal('close');
             flash('Erreur serveur', 'error');
           }
         );
@@ -79,21 +79,21 @@
     liste_contact.on('click', '.edit_contact_btn', function(){
       
       const id = $(this).data('id');
-      const $form = $contact_modal.find('form');
+      const $form = $contact_update_modal.find('form');
 
-      $contact_modal.iziModal('open');
-      $contact_modal.iziModal('startLoading');
+      $contact_update_modal.iziModal('open');
+      $contact_update_modal.iziModal('startLoading');
 
       $.get(`${base_url}/contacts/${id}/show`, function(data){
         for (const key in data) {
           $form.find(`input[name="${key}"]`).val(data[key]);
         }
-        $contact_modal.iziModal('stopLoading');
+        $contact_update_modal.iziModal('stopLoading');
       });
 
-      $('button.valider', $contact_modal).click(function(){
+      $('button.modifier', $contact_update_modal).click(function(){
         
-        $contact_modal.iziModal('startLoading');
+        $contact_update_modal.iziModal('startLoading');
         const data = $form.serializeArray();
         data.push({"name": "fournisseur_id", "value": fournisseur_id});
         data.push({"name": "_method", "value": "patch"});
@@ -101,9 +101,9 @@
 
         update_ressource(data, url, 
           response =>{ //success_action
-            $contact_modal.iziModal('stopLoading');
+            $contact_update_modal.iziModal('stopLoading');
             if(!response.error){
-              $contact_modal.iziModal('close');
+              $contact_update_modal.iziModal('close');
               liste_contact.ajax.reload();
               flash('Contact modifier', 'success');
             }else{
@@ -112,7 +112,7 @@
             }
           },
           ()=>{ //error_action
-            $contact_modal.iziModal('close');
+            $contact_update_modal.iziModal('close');
             flash('Erreur serveur', 'error');
           }
         );
@@ -121,14 +121,17 @@
 
     //-------------------------------------------------------
     //Supprimer Contact
+    const $suppression_loader = $('.suppression_loader');
     liste_contact.on('click', '.delete_contact_btn', function(e){
       const id = $(e.target).data('id');
       confirm_popup('Voulez vous supprimer ce contact ?', 'red',
       () =>{ //user clicked yes
         const data = {"_method": "delete"};
         const url = `${base_url}/contacts/${id}/destroy`; 
+        $suppression_loader.show();
         update_ressource(data, url, 
         response =>{ //success_action
+          $suppression_loader.hide();
           liste_contact.ajax.reload();
           flash('Contact supprimer', 'success');
         });

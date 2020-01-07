@@ -1,5 +1,5 @@
 <!-- Nouveau Contact Modal -->
-<div id="contact_modal" style="display:none" class="izimodal" data-iziModal-title="Nouveau Contact">
+<div id="nv_contact_modal" style="display:none" class="izimodal" data-iziModal-title="Nouveau Contact">
   <form class="ui form">
     <div class="field">
       <label>Nom</label>

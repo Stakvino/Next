@@ -1,22 +1,48 @@
+$primary-blue: #2185d0;
+
 div.main-secion{
   max-width: 1200px;
   margin: 50px auto;
+}
+
+div.ui.selection.dropdown.liste_fournisseur_length{
+  min-width: 70px;
+  margin: 0 15px;
+}
+
+#liste_fournisseur_paginate{
+  margin: 15px 0;
+  a.paginate_button:not(.disabled):hover{
+    background: $primary-blue;
+  }
+  a.paginate_button{
+    border: none;
+  }
+  span{
+    a.paginate_button.current{
+      background: $primary-blue;
+      color: white !important; 
+    }
+    a.paginate_button:hover{
+      background: $primary-blue;
+    }
+  }
 }
 
 #liste_fournisseur{
   tbody{
     tr[role="row"]{
       &.shown{
-        background-color: #2185d0;
+        background-color: $primary-blue;
         td.sorting_1{
-          background-color: #2185d0;
+          background-color: $primary-blue;
         }
       }  
       &.hover-highlight{
         &:hover{
-          background-color: #2185d0;
+          background-color: $primary-blue;
           td.sorting_1{
-            background-color: #2185d0;
+            background-color: $primary-blue;
           }
         }
       }   
@@ -33,16 +59,59 @@ div.main-secion{
       }
     }
     tr.no-padding{
-      background-color: lighten( #2185d0, 40%);
+      background-color: lighten( $primary-blue, 40%);
     }
     
   }
+}
+
+//Loaders
+
+#loader_tr{
+  display: none;
+  div.ui.segment{
+    border: 0;
+    margin-bottom: 30px;
+    width: 100%;
+  }
+}
+
+div.ui.segment.fournisseur_details_loader{
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  padding: 0;
+  margin: -10px;
+  background-color: inherit;
+  border: none;
+  box-shadow: none;
+  div.dimmer{
+    background-color: rgba(255,255,255, .3);
+  }
+}
+
+div.ui.segment.suppression_loader{
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border-radius: 15px;
 }
 
 #fournisseur_details{
   width: 60%;
   display: none;
   margin: 15px;
+  position: relative;
   div.field{
     display: flex;
     align-items: center;

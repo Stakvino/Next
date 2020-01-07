@@ -39,32 +39,26 @@ Route::group(['prefix' => '/crm/fournisseurs'], function () {
   Route::get('/filtered', 'FournisseurController@filtered')
   ->name('fournisseur.filtered');
 
-  //Fournisseur contact routes
+  //Fournisseur contacts routes
+
   Route::get('{fournisseur}/contacts', 'ContactController@index')
     ->name('contact.index');
 
-  Route::get('/contacts/{contact}/show', 'ContactController@show')
-  ->name('contact.show');
+  Route::group(['prefix' => '/contacts'], function () {
+            
+    Route::get('/{contact}/show', 'ContactController@show')
+    ->name('contact.show');
 
-  Route::post('/contacts/store', 'ContactController@store')
-  ->name('contact.store');
-
-  Route::patch('/contacts/{id}/update', 'ContactController@update')
-  ->name('contact.update');
-
-  Route::delete('/contacts/{id}/destroy', 'ContactController@destroy')
-  ->name('contact.destroy');
-
-  //Fournisseur contact routes
-  /* Route::group(['prefix' => '/contacts'], function () {
-          
-    Route::get('/fournisseurs/{fournisseur}/contacts', 'ContactController@index')
-    ->name('contact.index');
-
-    Route::post('/fournisseurs/contacts/store', 'ContactController@store')
+    Route::post('/store', 'ContactController@store')
     ->name('contact.store');
 
-  }); */
+    Route::patch('/{id}/update', 'ContactController@update')
+    ->name('contact.update');
+
+    Route::delete('/{id}/destroy', 'ContactController@destroy')
+    ->name('contact.destroy');
+
+  });
 
 });
 

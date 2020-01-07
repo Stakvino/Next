@@ -16,7 +16,7 @@
         <!-- Bootstrap -->
         <link href="{{asset('vendor/bootstrap/bootstrap.min.css')}}" />
         <!-- DataTable -->
-<link rel="stylesheet" href="http://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="http://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
         <!-- iziModal -->
         <link rel="stylesheet" href="{{asset('vendor/iziModal/Modal.min.css')}}" />
         <!-- iziToast -->

@@ -3,6 +3,32 @@ div.main-secion {
   margin: 50px auto;
 }
 
+div.ui.selection.dropdown.liste_fournisseur_length {
+  min-width: 70px;
+  margin: 0 15px;
+}
+
+#liste_fournisseur_paginate {
+  margin: 15px 0;
+}
+
+#liste_fournisseur_paginate a.paginate_button:not(.disabled):hover {
+  background: #2185d0;
+}
+
+#liste_fournisseur_paginate a.paginate_button {
+  border: none;
+}
+
+#liste_fournisseur_paginate span a.paginate_button.current {
+  background: #2185d0;
+  color: white !important;
+}
+
+#liste_fournisseur_paginate span a.paginate_button:hover {
+  background: #2185d0;
+}
+
 #liste_fournisseur tbody tr[role=row].shown {
   background-color: #2185d0;
 }
@@ -40,10 +66,54 @@ div.main-secion {
   background-color: #c7e2f6;
 }
 
+#loader_tr {
+  display: none;
+}
+
+#loader_tr div.ui.segment {
+  border: 0;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+div.ui.segment.fournisseur_details_loader {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  padding: 0;
+  margin: -10px;
+  background-color: inherit;
+  border: none;
+  box-shadow: none;
+}
+
+div.ui.segment.fournisseur_details_loader div.dimmer {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+div.ui.segment.suppression_loader {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 999;
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border-radius: 15px;
+}
+
 #fournisseur_details {
   width: 60%;
   display: none;
   margin: 15px;
+  position: relative;
 }
 
 #fournisseur_details div.field {

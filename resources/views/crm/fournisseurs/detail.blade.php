@@ -1,5 +1,6 @@
 <!-- Modals -->
   @include('crm.fournisseurs.includes.modals.contact')
+  @include('crm.fournisseurs.includes.modals.contact_update')
 <!-- /-->
 
 <!-- Show Fournisseur Details -->
