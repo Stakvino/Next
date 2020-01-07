@@ -163,7 +163,7 @@
 
     });
     //-------------------------------------------------------
-    const $fournisseur_details_loader = $('.fournisseur_details_loader');
+    const $fournisseur_update_loader = $('.fournisseur_update_loader');
     /**
     * Event handler to update fournisseur
     *  
@@ -179,8 +179,8 @@
       data.push({"name": "_method", "value": "patch"});
       const url = `${base_url}/${id}/update`;
       const $updated_row = $form.closest('tr').prev('tr.shown');
-      $('#fournisseur_details').append($fournisseur_details_loader);
-      $fournisseur_details_loader.show();
+      $('#fournisseur_details').append($fournisseur_update_loader);
+      $fournisseur_update_loader.show();
 
       update_ressource(data, url, 
       response => {
@@ -188,7 +188,7 @@
           update_row_values($updated_row, data);
           flash('Fournisseur modifier', 'success');
           $form.find('.error_message p').text('');
-          $fournisseur_details_loader.hide();
+          $fournisseur_update_loader.hide();
         }else{
           const error_messages = response.errors; 
           formErrors($form, error_messages);

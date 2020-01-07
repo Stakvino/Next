@@ -11,14 +11,14 @@
 <!-- /-->
 
 <!-- Loader -->
-<div class="ui segment fournisseur_details_loader">
+<div class="ui segment fournisseur_open_loader">
   <div class="ui active inverted dimmer">
     <div class="ui text loader">Chargement Fournisseur</div>
   </div>
   <p></p>
 </div>
 
-<div class="ui segment fournisseur_open_loader">
+<div class="ui segment fournisseur_update_loader">
   <div class="ui active inverted dimmer">
     <div class="ui text loader">Modification Fournisseur</div>
   </div>
