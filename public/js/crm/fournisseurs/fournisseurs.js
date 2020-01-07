@@ -48,6 +48,7 @@
       "order": [[0, 'asc']]
     } );
 
+
     //Add semantic ui styling to liste_length dropdown [25,50,100,All]
     $('select[name="liste_fournisseur_length"]')
     .addClass('ui dropdown liste_fournisseur_length');  
@@ -103,6 +104,10 @@
     const $reset_filters = $('div.reset_filters');
     const fade_delay = 200;
     const $filter_loader = $('.fournisseur_filter_loader');
+
+    liste_fournisseur.on( 'page.dt', () => $filter_loader.show() );
+    
+    liste_fournisseur.on( 'draw', () => $filter_loader.hide() );
 
     function filters_event_handler(){
       $filter_loader.show();
