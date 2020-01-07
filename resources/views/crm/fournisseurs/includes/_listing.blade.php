@@ -18,7 +18,7 @@
   <p></p>
 </div>
 
-<div class="ui segment fournisseur_update_loader">
+<div class="ui segment white_layer_loader fournisseur_update_loader">
   <div class="ui active inverted dimmer">
     <div class="ui text loader">Modification Fournisseur</div>
   </div>
@@ -36,6 +36,18 @@
 <!-- Listing Fournisseurs -->
 <table id="liste_fournisseur" class="display" style="width:100%">
   <thead>
+      <tr>
+        <th style="border: none;">
+          <!-- Filtering Loader -->
+          <div class="ui segment white_layer_loader fournisseur_filter_loader">
+            <div class="ui active inverted dimmer">
+              <div class="ui text loader">Chargement</div>
+            </div>
+            <p></p>
+          </div>
+          <!-- /-->
+        </th>
+      </tr>
       <tr>
           <th>Code</th>
           <th>Nom</th>

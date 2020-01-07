@@ -30,6 +30,7 @@ div.ui.selection.dropdown.liste_fournisseur_length{
 }
 
 #liste_fournisseur{
+  position: relative;
   tbody{
     tr[role="row"]{
       &.shown{
@@ -76,7 +77,7 @@ div.ui.selection.dropdown.liste_fournisseur_length{
   }
 }
 
-div.ui.segment.fournisseur_update_loader{
+div.ui.segment.white_layer_loader{
   display: none;
   position: absolute;
   top: 0;
@@ -91,6 +92,15 @@ div.ui.segment.fournisseur_update_loader{
   box-shadow: none;
   div.dimmer{
     background-color: rgba(255,255,255, .3);
+  }
+}
+
+div.fournisseur_filter_loader{
+  div.dimmer{
+    background-color: rgba(255,255,255, .9);
+  }
+  div.ui.text.loader{
+    top: 20%;
   }
 }
 

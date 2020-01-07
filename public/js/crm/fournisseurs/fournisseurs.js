@@ -102,9 +102,11 @@
     const $filters = $('.filter_');
     const $reset_filters = $('div.reset_filters');
     const fade_delay = 200;
+    const $filter_loader = $('.fournisseur_filter_loader');
 
     function filters_event_handler(){
-      liste_fournisseur.ajax.reload();
+      $filter_loader.show();
+      liste_fournisseur.ajax.reload( () => $filter_loader.hide() );
       const inputs_are_empty = $filters.toArray().every(input => input.value === "");
       if(inputs_are_empty){
         $reset_filters.hide(fade_delay);
@@ -216,8 +218,7 @@
         $suppression_loader.show(); 
         update_ressource(data, url, 
         response =>{ //success_action
-          $suppression_loader.hide();
-          liste_fournisseur.ajax.reload();
+          liste_fournisseur.ajax.reload( () => $suppression_loader.hide() );
           flash('Fournisseur supprimer', 'success');
         });
       })
