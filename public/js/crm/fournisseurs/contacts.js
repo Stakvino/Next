@@ -131,8 +131,8 @@
         $suppression_loader.show();
         update_ressource(data, url, 
         response =>{ //success_action
-          $suppression_loader.hide();
           liste_contact.ajax.reload();
+          $suppression_loader.hide();
           flash('Contact supprimer', 'success');
         });
       });
