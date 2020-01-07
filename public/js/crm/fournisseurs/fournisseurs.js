@@ -123,8 +123,11 @@
     $reset_filters.click(function(){
       $filters.val('');
       $('#filter_Pays').dropdown('clear');
-      $reset_filters.hide(fade_delay);
-      liste_fournisseur.ajax.reload();
+      $filter_loader.show();
+      liste_fournisseur.ajax.reload( () => {
+        $reset_filters.hide(fade_delay);
+        $filter_loader.hide(); 
+      });
     });
 
     //-------------------------------------------------------
