@@ -104,7 +104,7 @@ div.fournisseur_filter_loader div.dimmer {
 }
 
 div.fournisseur_filter_loader div.ui.text.loader {
-  top: 20%;
+  top: 150px;
 }
 
 div.ui.segment.suppression_loader {
