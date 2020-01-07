@@ -76,7 +76,7 @@ div.ui.selection.dropdown.liste_fournisseur_length {
   width: 100%;
 }
 
-div.ui.segment.fournisseur_details_loader {
+div.ui.segment.fournisseur_update_loader {
   display: none;
   position: absolute;
   top: 0;
@@ -91,7 +91,7 @@ div.ui.segment.fournisseur_details_loader {
   box-shadow: none;
 }
 
-div.ui.segment.fournisseur_details_loader div.dimmer {
+div.ui.segment.fournisseur_update_loader div.dimmer {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
